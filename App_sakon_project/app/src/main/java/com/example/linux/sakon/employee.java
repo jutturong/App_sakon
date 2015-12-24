@@ -24,6 +24,15 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +47,13 @@ public class employee extends TabActivity {
     public Intent intent_login;
 
     public ImageView imageView20;  //ดัชนีมวลกาย body_weight
+
+
+    public String IP="http://203.157.177.121/";
+    private final String NAMESPACE=  IP +  "nusoap/ServerSide.php";
+    private final String METHOD_NAME="person";
+    private final String URL= IP  +   "nusoap/ServerSide.php?wsdl";
+    private final String SOAP_ACTION =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME;
 
     TabHost mTabHost;
 
@@ -86,6 +102,46 @@ String[] arr_picture={"เลือกภาพ"};
         ArrayAdapter<String> arrAd=new ArrayAdapter<String>(employee.this,android.R.layout.simple_spinner_item,arr_picture);
         arrAd.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinner_picture1.setAdapter(arrAd);
+
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("strUsername", "ict");
+        request.addProperty("strPassword", "skko");
+        request.addProperty("strDatatype", "json");
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
+                SoapEnvelope.VER11);
+        envelope.setOutputSoapObject(request);
+        HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
+        String resultServer=null;
+
+        try{
+            androidHttpTransport.call(SOAP_ACTION, envelope);
+            SoapObject result=(SoapObject) envelope.bodyIn;
+            resultServer=result.getProperty(0).toString();
+        }catch (IOException e)
+        {
+            e.printStackTrace();
+        }catch (XmlPullParserException e)
+        {
+            e.printStackTrace();
+        }
+
+
+        String cid="";
+        JSONObject c;
+        try{
+            c=new JSONObject( resultServer);
+            cid=c.getString("cid");
+
+
+
+
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+
+
+
 
 
 
