@@ -1,0 +1,214 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/b_app2"
+    android:alpha="1"
+    android:layout_height="match_parent" >
+
+
+    <ImageView
+        android:id="@+id/imageViewI6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="76dp"
+        android:layout_marginLeft="34dp"
+        android:src="@drawable/i6"
+        android:paddingRight="2sp"
+        android:layout_gravity="top|right"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="130dp"
+        android:text="การตรวจร้านค้า"
+        android:textSize="11dp"
+
+        />
+
+    <ImageView
+        android:id="@+id/imageViewI7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="76dp"
+        android:layout_marginLeft="160dp"
+        android:src="@drawable/i7"
+        android:paddingRight="2sp"
+        android:layout_gravity="top|right"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="130dp"
+        android:text="แหล่งผลิตน้ำดื่ม"
+        android:textSize="11dp"
+
+        />
+
+
+    <ImageView
+        android:id="@+id/imageViewI8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="76dp"
+        android:layout_marginLeft="280dp"
+        android:src="@drawable/i8"
+        android:paddingRight="2sp"
+        android:layout_gravity="top|right"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="130dp"
+        android:text="เผ้าระวัง/ภัยสุขภาพ"
+        android:textSize="11dp"
+
+        />
+
+
+    <ImageView
+        android:id="@+id/imageViewI9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="34dp"
+        android:src="@drawable/i8"
+        android:paddingRight="2sp"
+        android:layout_gravity="top|right"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="220dp"
+        android:text="ตรวจสุขภาพ"
+        android:textSize="11dp"
+
+        />
+
+
+    <ImageView
+        android:id="@+id/imageViewI13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="160dp"
+        android:src="@drawable/i13"
+        android:paddingRight="2sp"
+        android:layout_gravity="top|right"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="220dp"
+        android:text="ธาตุเจ้าเรือน"
+        android:textSize="11dp"
+
+        />
+
+
+    <ImageView
+        android:id="@+id/imageViewI27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="280dp"
+        android:src="@drawable/i27"
+        android:paddingRight="2sp"
+        android:layout_gravity="top|right"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="280dp"
+        android:layout_marginTop="220dp"
+        android:text="ใบสมัคร"
+        android:textSize="11dp"
+
+        />
+
+<!--
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=" เข้าสู่ระบบสารสนเทศ "
+        android:layout_span="1"
+        android:layout_marginTop="240dp"
+        android:layout_marginLeft="80dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+-->
+
+    <!--android:text="weerachai"-->
+    <EditText
+        android:id="@+id/txtUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:layout_marginLeft="80dp"
+        android:text="poomjit"
+        android:maxLength="10"
+        android:ems="10" >
+    </EditText>
+
+
+    <!-- android:text="weerachai@1"-->
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="310dp"
+        android:layout_marginLeft="80dp"
+        android:ems="10"
+        android:text="123456"
+        android:maxLength="10"
+        android:inputType="textPassword" >
+    </EditText>
+
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="80dp"
+        android:text="เข้าสู่ระบบ" />
+
+    <Button
+        android:id="@+id/btnForget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="180dp"
+        android:text="ลืมรหัสผ่าน" />
+
+
+    <!--
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/b420371"
+
+        />
+
+-->
+
+</RelativeLayout>

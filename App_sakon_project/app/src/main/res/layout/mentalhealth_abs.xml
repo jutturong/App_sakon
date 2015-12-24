@@ -1,0 +1,169 @@
+
+<AbsoluteLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/b_app2"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_x="0dp"
+        android:layout_y="0dp"
+        android:textSize="20dp"
+        android:textColor="@android:color/white"
+        android:text="สุขภาพจิต"
+        android:shadowColor="#2c0505"
+
+        android:background="#69d4f4"
+        android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="5dp"
+        android:layout_y="50dp"
+        android:textColor="@android:color/white"
+        android:text="คำชี้แจง : ให้ท่านสำรวจตัวท่านเองและประเมินเหตุการณ์"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="5dp"
+        android:layout_y="70dp"
+        android:textColor="@android:color/white"
+        android:text="อาการหรือความคิดเห็นและความรู้สึกของท่านว่าอยู่ในระดับใด"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="20dp"
+        android:layout_y="100dp"
+        android:textColor="@android:color/black"
+        android:text="เพศ : "
+        />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup_sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="60dp"
+        android:layout_y="95dp"
+        >
+
+    <RadioButton
+        android:id="@+id/sex1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ชาย"
+        />
+
+    <RadioButton
+        android:id="@+id/sex2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="หญิง"
+        />
+
+    </RadioGroup>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="150dp"
+        android:layout_y="100dp"
+        android:textColor="@android:color/black"
+        android:text="อายุ : "
+        />
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_x="185dp"
+        android:layout_y="80dp"
+        android:ems="3"
+        android:maxLength="3"
+       android:width="20dp"
+        android:gravity="center"
+        android:inputType="number"
+        >
+    </EditText>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="270dp"
+        android:layout_y="100dp"
+        android:textColor="@android:color/black"
+        android:text="ปี"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="20dp"
+        android:layout_y="160dp"
+        android:textColor="@android:color/black"
+        android:text="สถานภาพ : "
+        />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="100dp"
+        android:layout_y="155dp"
+        >
+
+        <RadioButton
+            android:id="@+id/status1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="โสด"
+            />
+
+        <RadioButton
+            android:id="@+id/status2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="สมรส"
+            />
+
+        <RadioButton
+            android:id="@+id/status3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="อย่า"
+            />
+
+        </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="180dp"
+        android:layout_y="160dp"
+        android:textColor="@android:color/black"
+        android:text="อาชีพ : "
+        />
+
+
+    <Spinner
+        android:id="@+id/spinner_career"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_y="158dp"
+        android:layout_x="230dp"
+        />
+
+
+
+</AbsoluteLayout>

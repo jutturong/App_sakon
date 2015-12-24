@@ -1,0 +1,1 @@
+include ':app', ':ksoap2-android-assembly-2.5.2', ':jsoup-1.8.3'

@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">sakon</string>
+    <string name="title">ระบบสุขภาพประชาชนออนไลน์จังหวัดสกลนคร</string>
+    <string name="action_settings">Settings</string>
+    <string name="body_name">ดัชนีมวลกาย</string>
+</resources>

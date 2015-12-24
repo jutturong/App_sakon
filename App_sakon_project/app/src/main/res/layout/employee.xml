@@ -1,0 +1,267 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:accordion="http://schemas.android.com/apk/res-auto">
+
+
+
+
+
+
+
+
+
+<!--
+    <QuickContactBadge
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/quickContactBadge"
+        android:layout_alignTop="@+id/txtWeight"
+        android:layout_alignLeft="@+id/btnDMY"
+        android:layout_alignStart="@+id/btnDMY"
+        android:layout_alignBottom="@+id/labellastname"
+        android:layout_alignRight="@+id/btnDMY"
+        android:layout_alignEnd="@+id/btnDMY" />
+        -->
+
+
+
+
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/camera_icon"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/labelname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="150dp"
+        android:text="ชื่อ :"
+         />
+
+
+
+    <EditText
+        android:id="@+id/txtWeight"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="180dp"
+        android:ems="20"
+        android:maxLength="10"
+        android:gravity="left"
+        >
+    </EditText>
+
+
+    <TextView
+        android:id="@+id/labellastname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="150dp"
+        android:text="นามสกุล :" />
+
+
+    <EditText
+
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="210dp"
+        android:ems="20"
+        android:maxLength="10"
+        android:gravity="left"
+        android:id="@+id/editText">
+    </EditText>
+
+
+
+    <Button
+        android:id="@+id/btnDMY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="30dp"
+        android:text="แสดง วัน-เดือน-ปี : "
+
+
+        />
+
+
+<EditText
+    android:layout_width="130dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="90dp"
+    android:layout_marginLeft="165dp"
+    />
+
+
+ <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="ที่อยู่ : "
+     android:layout_marginTop="150dp"
+     android:layout_marginLeft="40dp"
+
+     />
+
+
+    <EditText
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="80dp"
+        android:maxLength="100"
+
+        />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="เพศ : "
+    android:layout_marginTop="190dp"
+    android:layout_marginLeft="40dp"
+    />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="180dp"
+        >
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="ชาย" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="หญิง" />
+
+    </RadioGroup>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="อายุ : "
+        android:layout_marginTop="190dp"
+        android:layout_marginLeft="200dp"
+        />
+
+    <EditText
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:maxLength="3"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="235dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ปี"
+        android:layout_marginTop="190dp"
+        android:layout_marginLeft="290dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="หมู่เลือด : "
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="40dp"
+        />
+
+    <EditText
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="230dp"
+        android:maxLength="1"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ส่วนสูง : "
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="150dp"
+        />
+
+    <EditText
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:maxLength="3"
+        android:layout_marginTop="230dp"
+        android:layout_marginLeft="200dp"
+        android:inputType="number"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="เซนติเมตร "
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="270dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="น้ำหนัก : "
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="290dp"
+        />
+
+    <EditText
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="270dp"
+        android:inputType="number"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="กิโลกรัม"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="290dp"
+        />
+
+
+
+<!--
+    <ExpandableListView
+        android:id="@+id/expandablelistview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="100dp"
+
+        />
+-->
+
+
+
+</RelativeLayout>

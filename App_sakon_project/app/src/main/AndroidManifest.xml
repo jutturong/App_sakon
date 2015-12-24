@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.linux.sakon" >
+
+
+    <uses-feature android:name="android.hardware.camera2"></uses-feature>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/b42"
+        android:label="@string/title"
+        android:supportsRtl="true"
+
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title"
+            android:theme="@style/AppTheme.NoActionBar" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <uses-feature android:name="android.hardware.camera" />
+            </intent-filter>
+
+        </activity>
+
+
+        <activity android:name=".loginsystem" ></activity>
+        <activity android:name=".body" ></activity>
+        <activity android:name=".MentalHealth" ></activity>
+        <activity android:name=".page3system" ></activity>
+        <activity android:name=".employee" ></activity>
+
+    </application>
+
+
+    <!--
+    <activity android:name=".loginsystem" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"></activity>
+    -->
+
+
+
+
+</manifest>
