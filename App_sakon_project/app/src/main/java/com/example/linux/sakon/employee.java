@@ -106,7 +106,7 @@ String[] arr_picture={"เลือกภาพ"};
 
 
         // final EditText txtWeight=(EditText)findViewById(R.id.txtWeight);
-        //final EditText txtname=(EditText)findViewById(R.id.txtname);
+        final EditText txtname=(EditText)findViewById(R.id.txtname);
 
 
 
@@ -175,14 +175,15 @@ String[] arr_picture={"เลือกภาพ"};
         }
 
 
-
+/*
         Toast.makeText(getApplicationContext(),
                 cid + name + LNAME + BIRTH + ABOGROUP + address + SEX + AGE
                 ,
                 Toast.LENGTH_LONG).show(); //ok
+*/
+        
 
-
-          // txtname.setText(name.toString());
+           txtname.setText(name.toString());
 
 
 
