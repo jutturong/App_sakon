@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
@@ -103,6 +104,13 @@ String[] arr_picture={"เลือกภาพ"};
         arrAd.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinner_picture1.setAdapter(arrAd);
 
+
+        // final EditText txtWeight=(EditText)findViewById(R.id.txtWeight);
+        //final EditText txtname=(EditText)findViewById(R.id.txtname);
+
+
+
+
         SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
         request.addProperty("strUsername", "ict");
         request.addProperty("strPassword", "skko");
@@ -167,10 +175,16 @@ String[] arr_picture={"เลือกภาพ"};
         }
 
 
+
         Toast.makeText(getApplicationContext(),
                 cid + name + LNAME + BIRTH + ABOGROUP + address + SEX + AGE
                 ,
                 Toast.LENGTH_LONG).show(); //ok
+
+
+          // txtname.setText(name.toString());
+
+
 
 
 
