@@ -20,6 +20,7 @@ import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -112,6 +113,9 @@ String[] arr_picture={"เลือกภาพ"};
         final EditText txtABOGROUP=(EditText)findViewById(R.id.txtABOGROUP);
         final EditText txtaddress=(EditText)findViewById(R.id.txtaddress);
         final EditText txtAGE=(EditText)findViewById(R.id.txtAGE);
+        final RadioButton radioM=(RadioButton)findViewById(R.id.radioM);
+        final RadioButton radioF=(RadioButton)findViewById(R.id.radioF);
+
 
         SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
         request.addProperty("strUsername", "ict");
@@ -190,8 +194,12 @@ String[] arr_picture={"เลือกภาพ"};
             txtBIRTH.setText(BIRTH.toString());
             txtABOGROUP.setText(ABOGROUP.toString());
            txtaddress.setText(address.toString());
+
              txtAGE.setText(AGE.toString());
 
+        
+             // radioM.setChecked(true);
+              radioF.setChecked(true);
     }
 
     
