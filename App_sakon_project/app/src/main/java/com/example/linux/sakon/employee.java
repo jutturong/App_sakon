@@ -195,11 +195,17 @@ String[] arr_picture={"เลือกภาพ"};
             txtABOGROUP.setText(ABOGROUP.toString());
            txtaddress.setText(address.toString());
 
-             txtAGE.setText(AGE.toString());
+           txtAGE.setText(AGE.toString());
 
-        
-             // radioM.setChecked(true);
+        if(SEX.equals("ชาย"))
+        {
+             radioM.setChecked(true);
+        }
+        else
+        {
               radioF.setChecked(true);
+        }
+
     }
 
     
