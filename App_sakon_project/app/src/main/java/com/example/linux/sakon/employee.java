@@ -107,6 +107,7 @@ String[] arr_picture={"เลือกภาพ"};
         request.addProperty("strUsername", "ict");
         request.addProperty("strPassword", "skko");
         request.addProperty("strDatatype", "json");
+        request.addProperty("strCID", "3471201545502");
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
                 SoapEnvelope.VER11);
         envelope.setOutputSoapObject(request);
@@ -127,12 +128,25 @@ String[] arr_picture={"เลือกภาพ"};
 
 
         String cid="";
+        String name="";
+        String LNAME="";
         JSONObject c;
         try{
             c=new JSONObject( resultServer);
             cid=c.getString("cid");
+            name=c.getString("name");
+            LNAME=c.getString("LNAME");
 
-
+            /*
+              $rows["cid"]=$row["cid"];
+                          $rows["name"]=$row["name"];
+                          $rows["LNAME"]=$row["LNAME"];
+                          $rows["BIRTH"]=$row["BIRTH"];
+                          $rows["ABOGROUP"]=$row["ABOGROUP"];
+                          $rows["address"]=$row["address"];
+                          $rows["SEX"]=$row["SEX"];
+                          $rows["AGE"]=$row["AGE"];
+             */
 
 
         }catch (JSONException e)
@@ -141,7 +155,10 @@ String[] arr_picture={"เลือกภาพ"};
         }
 
 
-
+        Toast.makeText(getApplicationContext(),
+                cid + name + LNAME
+                ,
+                Toast.LENGTH_LONG).show(); //ok
 
 
 
