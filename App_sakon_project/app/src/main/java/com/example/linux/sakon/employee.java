@@ -105,11 +105,13 @@ String[] arr_picture={"เลือกภาพ"};
         spinner_picture1.setAdapter(arrAd);
 
 
-        // final EditText txtWeight=(EditText)findViewById(R.id.txtWeight);
+
         final EditText txtname=(EditText)findViewById(R.id.txtname);
-
-
-
+        final EditText txtLNAME=(EditText)findViewById(R.id.txtLNAME);
+        final EditText txtBIRTH=(EditText)findViewById(R.id.txtBIRTH);
+        final EditText txtABOGROUP=(EditText)findViewById(R.id.txtABOGROUP);
+        final EditText txtaddress=(EditText)findViewById(R.id.txtaddress);
+        final EditText txtAGE=(EditText)findViewById(R.id.txtAGE);
 
         SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
         request.addProperty("strUsername", "ict");
@@ -181,13 +183,14 @@ String[] arr_picture={"เลือกภาพ"};
                 ,
                 Toast.LENGTH_LONG).show(); //ok
 */
-        
+
 
            txtname.setText(name.toString());
-
-
-
-
+           txtLNAME.setText(LNAME.toString());
+            txtBIRTH.setText(BIRTH.toString());
+            txtABOGROUP.setText(ABOGROUP.toString());
+           txtaddress.setText(address.toString());
+             txtAGE.setText(AGE.toString());
 
     }
 
