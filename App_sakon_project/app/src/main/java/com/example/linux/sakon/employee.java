@@ -130,12 +130,24 @@ String[] arr_picture={"เลือกภาพ"};
         String cid="";
         String name="";
         String LNAME="";
+        String BIRTH="";
+        String ABOGROUP="";
+        String address="";
+        String SEX="";
+        String AGE="";
+
+
         JSONObject c;
         try{
             c=new JSONObject( resultServer);
             cid=c.getString("cid");
             name=c.getString("name");
             LNAME=c.getString("LNAME");
+            BIRTH=c.getString("BIRTH");
+            ABOGROUP=c.getString("ABOGROUP");
+            address=c.getString("address");
+            SEX=c.getString("SEX");
+            AGE=c.getString("AGE");
 
             /*
               $rows["cid"]=$row["cid"];
@@ -156,7 +168,7 @@ String[] arr_picture={"เลือกภาพ"};
 
 
         Toast.makeText(getApplicationContext(),
-                cid + name + LNAME
+                cid + name + LNAME + BIRTH + ABOGROUP + address + SEX + AGE
                 ,
                 Toast.LENGTH_LONG).show(); //ok
 
