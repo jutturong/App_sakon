@@ -314,21 +314,21 @@
 
                     <TextView
                                 android:id="@+id/HOSPCODE"
-                        android:layout_width="wrap_content"
+                                android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="รหัสถานบริการ"/>
 
                             <TextView
                                 android:id="@+id/DNAME"
-                                android:layout_width="0dp"
+                                android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:text="ชื่อยา"/>
 
                             <TextView
                                 android:id="@+id/ALEVEL"
-                                android:layout_width="0dp"
+                                android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="ความรุนแรง" />
