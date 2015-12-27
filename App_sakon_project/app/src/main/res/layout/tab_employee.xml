@@ -313,31 +313,35 @@
                         android:orientation="vertical" >
 
                     <TextView
-                                android:id="@+id/HOSPCODE"
+                                android:id="@+id/txtHOSPCODE"
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textAlignment="center"
                                 android:text="รหัสถานบริการ"/>
 
                             <TextView
-                                android:id="@+id/DNAME"
+                                android:id="@+id/txtDNAME"
                                 android:layout_width="80dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="2"
+                                android:layout_weight="1"
+                                android:textAlignment="center"
                                 android:text="ชื่อยา"/>
 
                             <TextView
-                                android:id="@+id/ALEVEL"
+                                android:id="@+id/txtALEVEL"
                                 android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textAlignment="center"
                                 android:text="ความรุนแรง" />
 
                             <TextView
-                                android:id="@+id/off_name"
-                                android:layout_width="0dp"
+                                android:id="@+id/txtoff_name"
+                                android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textAlignment="center"
                                 android:text="ชื่อสถานบริการ" />
 
                     </TableRow>
