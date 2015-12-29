@@ -65,7 +65,19 @@ public class employee extends TabActivity {
 
 
     private static final String[] COUNTRIES = new String[] {
-            "Belgium", "France", "Italy", "Germany", "Spain"
+            "PENICILLIN V Dry. Syrup", "PENICILLIN V 400,000 Cap.", "CLOXACILLIN 250 MG.(N)", "AUGMENTIN 625 MG.", "PENICILLIN V 250 MG (ก)"
+    };
+
+    private static final String[] ID_COUNTRIES = new String[] {
+            "05444", "05444", "10710", "10710", "10710"
+    };
+
+    private static final String[] ALEVEL = new String[] {
+            "ร้ายแรง - อัตรายถึงชีวิต (Life-threatening)", "ร้ายแรง - อัตรายถึงชีวิต (Life-threatening)", "ไม่ร้ายแรง (Non-serious)", "ไม่ร้ายแรง (Non-serious)", "ไม่ร้ายแรง (Non-serious)"
+    };
+
+    private static final String[] 	off_name = new String[] {
+            "รพ.สต.โคกเลาะ ตำบลขมิ้น", "รพ.สต.โคกเลาะ ตำบลขมิ้น", "โรงพยาบาลสกลนคร", "โรงพยาบาลสกลนคร", "โรงพยาบาลสกลนคร"
     };
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -213,11 +225,24 @@ public class employee extends TabActivity {
             radioF.setChecked(true);
         }
 
-        //--tab
+        //--test  tab---
                 final ListView listView1=(ListView)findViewById(R.id.listView1);
                 ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,COUNTRIES);
                 listView1.setAdapter(adapter);
-        //--tab
+
+                final ListView listView2=(ListView)findViewById(R.id.listView2);
+                 ArrayAdapter<String> adapter2=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,ID_COUNTRIES);
+                listView2.setAdapter(adapter2);
+
+                final ListView listView3=(ListView)findViewById(R.id.listView3);
+                ArrayAdapter<String> adapter3=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,ALEVEL);
+                listView3.setAdapter(adapter3);
+
+                final ListView listView4=(ListView)findViewById(R.id.listView4);
+                ArrayAdapter<String> adapter4=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,off_name);
+                listView3.setAdapter(adapter4);
+
+        //--tab tab---
 
     }
 
