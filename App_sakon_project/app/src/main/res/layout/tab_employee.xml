@@ -321,11 +321,38 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:layout_marginRight="56dp" >
+                            android:layout_marginRight="5dp" >
+                        </ListView>
+
+                        <ListView
+                            android:id="@+id/listView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp" >
+                        </ListView>
+
+                        <ListView
+                            android:id="@+id/listView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp" >
+                        </ListView>
+
+                        <ListView
+                            android:id="@+id/listView4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp" >
                         </ListView>
 
 
-
+                    <!--
                     <TextView
                                 android:id="@+id/txtHOSPCODE"
                                 android:layout_width="100dp"
@@ -357,6 +384,7 @@
                                 android:layout_weight="1"
                                 android:textAlignment="center"
                                 android:text="ชื่อสถานบริการ" />
+                     -->
 
 
 
