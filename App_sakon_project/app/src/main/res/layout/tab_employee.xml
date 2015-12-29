@@ -313,6 +313,19 @@
                         android:id="@+id/tb_employee"
                         android:orientation="vertical" >
 
+
+
+                        <ListView
+                            android:id="@+id/listView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="56dp" >
+                        </ListView>
+
+
+
                     <TextView
                                 android:id="@+id/txtHOSPCODE"
                                 android:layout_width="100dp"
@@ -345,7 +358,17 @@
                                 android:textAlignment="center"
                                 android:text="ชื่อสถานบริการ" />
 
+
+
+
+
+
                     </TableRow>
+
+
+
+
+
 
                 </HorizontalScrollView>
 
@@ -360,7 +383,7 @@
                 android:layout_height="match_parent" >
 
 
-                <!--
+
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
@@ -371,7 +394,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Data Tab3" />
-                -->
 
             </LinearLayout>
 
