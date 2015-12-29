@@ -23,6 +23,7 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TabHost;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,9 +58,15 @@ public class employee extends TabActivity {
     private final String URL= IP  +   "nusoap/ServerSide.php?wsdl";
     private final String SOAP_ACTION =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME;
 
+
     TabHost mTabHost;
 
-String[] arr_picture={"เลือกภาพ"};
+    String[] arr_picture={"เลือกภาพ"};
+
+
+    private static final String[] COUNTRIES = new String[] {
+            "Belgium", "France", "Italy", "Germany", "Spain"
+    };
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -189,26 +196,32 @@ String[] arr_picture={"เลือกภาพ"};
 */
 
 
-           txtname.setText(name.toString());
-           txtLNAME.setText(LNAME.toString());
-            txtBIRTH.setText(BIRTH.toString());
-            txtABOGROUP.setText(ABOGROUP.toString());
-           txtaddress.setText(address.toString());
+        txtname.setText(name.toString());
+        txtLNAME.setText(LNAME.toString());
+        txtBIRTH.setText(BIRTH.toString());
+        txtABOGROUP.setText(ABOGROUP.toString());
+        txtaddress.setText(address.toString());
 
-           txtAGE.setText(AGE.toString());
+        txtAGE.setText(AGE.toString());
 
         if(SEX.equals("ชาย"))
         {
-             radioM.setChecked(true);
+            radioM.setChecked(true);
         }
         else
         {
-              radioF.setChecked(true);
+            radioF.setChecked(true);
         }
+
+        //--tab
+                final ListView listView1=(ListView)findViewById(R.id.listView1);
+                ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,COUNTRIES);
+                listView1.setAdapter(adapter);
+        //--tab
 
     }
 
-    
+
 
     protected class MyExpadableAdapter extends BaseExpandableListAdapter
     {
