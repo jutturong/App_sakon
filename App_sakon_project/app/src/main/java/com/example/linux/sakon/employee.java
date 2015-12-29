@@ -58,6 +58,10 @@ public class employee extends TabActivity {
     private final String URL= IP  +   "nusoap/ServerSide.php?wsdl";
     private final String SOAP_ACTION =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME;
 
+    //-------- connect ประวัติแพ้ยา ---
+    private final String METHOD_NAME_drugallergy="chronic";
+    private final String SOAP_ACTION_drugallergy =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_drugallergy;
+    //-------- connect ประวัติแพ้ยา ---
 
     TabHost mTabHost;
 
@@ -241,6 +245,69 @@ public class employee extends TabActivity {
                 final ListView listView4=(ListView)findViewById(R.id.listView4);
                 ArrayAdapter<String> adapter4=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,off_name);
                 listView3.setAdapter(adapter4);
+
+                //--test connect WEBSERVICE---
+
+
+
+
+
+        /*
+        http://203.157.177.121/nusoap/testClientJSON.php?function=chronic&strDatatype=json&strCID=3470100391002
+        function chronic($strUsername,$strPassword,$strDatatype,$strCID)
+        $chronic_varname = array(
+                'strUsername' => "ict",
+                'strPassword' => "skko",
+                'strDatatype'=>"json",
+                'strCID'=>"3470100391002",  //3470100391002
+        );
+        echo "<hr>";
+        echo  "โรคประจำตัว";
+        echo "<br>";
+        $data9=$client->call("chronic",$chronic_varname);  //chronic
+        echo $data9;
+
+
+
+    public String IP="http://203.157.177.121/";
+    private final String NAMESPACE=  IP +  "nusoap/ServerSide.php";
+    private final String METHOD_NAME="person";
+    private final String URL= IP  +   "nusoap/ServerSide.php?wsdl";
+    private final String SOAP_ACTION =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME;
+
+
+
+        //-------- connect ประวัติแพ้ยา ---
+        //private final String METHOD_NAME_drugallergy="chronic";
+       // private final String SOAP_ACTION_drugallergy =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_drugallergy;
+        //-------- connect ประวัติแพ้ยา ---
+
+        */
+
+
+        SoapObject request_drug = new SoapObject(NAMESPACE, METHOD_NAME_drugallergy);
+        request.addProperty("strUsername", "ict");
+        request.addProperty("strPassword", "skko");
+        request.addProperty("strDatatype", "json");
+        request.addProperty("strCID", "3470100391002");
+        SoapSerializationEnvelope envelope_drug = new SoapSerializationEnvelope(
+               SoapEnvelope.VER11);
+        envelope_drug.setOutputSoapObject(request);
+        HttpTransportSE androidHttpTransport_drug = new HttpTransportSE(URL);
+        String resultServer_drug=null;
+        try{
+            androidHttpTransport.call(SOAP_ACTION_drugallergy, envelope_drug );
+            SoapObject result=(SoapObject) envelope.bodyIn;
+            resultServer=result.getProperty(0).toString();
+        }catch (IOException e)
+        {
+            e.printStackTrace();
+        }catch (XmlPullParserException e)
+        {
+            e.printStackTrace();
+        }
+                    //--test connect WEBSERVICE---
+
 
         //--tab tab---
 
