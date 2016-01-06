@@ -297,8 +297,8 @@ public class employee extends TabActivity {
         String resultServer_drug=null;
         try{
             androidHttpTransport.call(SOAP_ACTION_drugallergy, envelope_drug );
-            SoapObject result=(SoapObject) envelope.bodyIn;
-            resultServer=result.getProperty(0).toString();
+            SoapObject result_drug=(SoapObject) envelope.bodyIn;
+            resultServer_drug=result_drug.getProperty(0).toString();
         }catch (IOException e)
         {
             e.printStackTrace();
@@ -306,6 +306,53 @@ public class employee extends TabActivity {
         {
             e.printStackTrace();
         }
+
+
+        JSONObject c_drug;
+        String cid_drug="";
+        try{
+            c_drug=new JSONObject( resultServer_drug);
+
+            /*
+            cid=c.getString("cid");
+            name=c.getString("name");
+            LNAME=c.getString("LNAME");
+            BIRTH=c.getString("BIRTH");
+            ABOGROUP=c.getString("ABOGROUP");
+            address=c.getString("address");
+            SEX=c.getString("SEX");
+            AGE=c.getString("AGE");
+            */
+
+            cid_drug=c_drug.getString("cid");
+
+
+            /*
+              $rows["cid"]=$row["cid"];
+                          $rows["name"]=$row["name"];
+                          $rows["LNAME"]=$row["LNAME"];
+                          $rows["BIRTH"]=$row["BIRTH"];
+                          $rows["ABOGROUP"]=$row["ABOGROUP"];
+                          $rows["address"]=$row["address"];
+                          $rows["SEX"]=$row["SEX"];
+                          $rows["AGE"]=$row["AGE"];
+             */
+
+
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+
+
+
+        Toast.makeText(getApplicationContext(),
+                cid_drug
+                ,
+                Toast.LENGTH_LONG).show(); //ok
+
+
+
                     //--test connect WEBSERVICE---
 
 
