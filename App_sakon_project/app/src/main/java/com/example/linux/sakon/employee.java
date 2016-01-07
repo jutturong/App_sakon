@@ -27,6 +27,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.ksoap2.SoapEnvelope;
@@ -59,8 +60,11 @@ public class employee extends TabActivity {
     private final String SOAP_ACTION =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME;
 
     //-------- connect ประวัติแพ้ยา ---
-    private final String METHOD_NAME_drugallergy="chronic";
+    private final String METHOD_NAME_drugallergy="drugallergy";
+
     private final String SOAP_ACTION_drugallergy =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_drugallergy;
+
+
     //-------- connect ประวัติแพ้ยา ---
 
     TabHost mTabHost;
@@ -230,21 +234,7 @@ public class employee extends TabActivity {
         }
 
         //--test  tab---
-                final ListView listView1=(ListView)findViewById(R.id.listView1);
-                ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,COUNTRIES);
-                listView1.setAdapter(adapter);
 
-                final ListView listView2=(ListView)findViewById(R.id.listView2);
-                 ArrayAdapter<String> adapter2=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,ID_COUNTRIES);
-                listView2.setAdapter(adapter2);
-
-                final ListView listView3=(ListView)findViewById(R.id.listView3);
-                ArrayAdapter<String> adapter3=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,ALEVEL);
-                listView3.setAdapter(adapter3);
-
-                final ListView listView4=(ListView)findViewById(R.id.listView4);
-                ArrayAdapter<String> adapter4=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,off_name);
-                listView3.setAdapter(adapter4);
 
                 //--test connect WEBSERVICE---
 
@@ -284,15 +274,23 @@ public class employee extends TabActivity {
 
         */
 
+        /*
+          $drugallergy_varname=array(
+         'strUsername' => "ict",
+         'strPassword' => "skko",
+         'strDatatype'=>"json",
+         'strCID'=>"3470100253904",
+    );
+         */
 
         SoapObject request_drug = new SoapObject(NAMESPACE, METHOD_NAME_drugallergy);
-        request.addProperty("strUsername", "ict");
-        request.addProperty("strPassword", "skko");
-        request.addProperty("strDatatype", "json");
-        request.addProperty("strCID", "3470100391002");
+        request_drug.addProperty("strUsername", "ict");
+        request_drug.addProperty("strPassword", "skko");
+        request_drug.addProperty("strDatatype", "json");
+        request_drug.addProperty("strCID", "3470100253904");
         SoapSerializationEnvelope envelope_drug = new SoapSerializationEnvelope(
                SoapEnvelope.VER11);
-        envelope_drug.setOutputSoapObject(request);
+        envelope_drug.setOutputSoapObject(request_drug);
         HttpTransportSE androidHttpTransport_drug = new HttpTransportSE(URL);
         String resultServer_drug=null;
         try{
@@ -308,35 +306,15 @@ public class employee extends TabActivity {
         }
 
 
-        JSONObject c_drug;
-        String cid_drug="";
+           JSONObject c_drug;
+           String HOSPCODE="";
+           String ALEVEL_ = "";
+
         try{
             c_drug=new JSONObject( resultServer_drug);
-
-            /*
-            cid=c.getString("cid");
-            name=c.getString("name");
-            LNAME=c.getString("LNAME");
-            BIRTH=c.getString("BIRTH");
-            ABOGROUP=c.getString("ABOGROUP");
-            address=c.getString("address");
-            SEX=c.getString("SEX");
-            AGE=c.getString("AGE");
-            */
-
-            cid_drug=c_drug.getString("cid");
-
-
-            /*
-              $rows["cid"]=$row["cid"];
-                          $rows["name"]=$row["name"];
-                          $rows["LNAME"]=$row["LNAME"];
-                          $rows["BIRTH"]=$row["BIRTH"];
-                          $rows["ABOGROUP"]=$row["ABOGROUP"];
-                          $rows["address"]=$row["address"];
-                          $rows["SEX"]=$row["SEX"];
-                          $rows["AGE"]=$row["AGE"];
-             */
+            //cid=c.getString("cid");
+            HOSPCODE=c_drug.getString("HOSPCODE");
+            ALEVEL_ =c_drug.getString("ALEVEL");
 
 
         }catch (JSONException e)
@@ -345,12 +323,40 @@ public class employee extends TabActivity {
         }
 
 
-
+/*
         Toast.makeText(getApplicationContext(),
                 cid_drug
                 ,
                 Toast.LENGTH_LONG).show(); //ok
+*/
 
+        Toast.makeText(getApplicationContext(),
+                HOSPCODE +  ALEVEL_
+                ,
+                Toast.LENGTH_LONG).show(); //ok
+
+
+
+
+
+
+
+        final ListView listView1=(ListView)findViewById(R.id.listView1);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,COUNTRIES);
+
+        listView1.setAdapter(adapter);
+
+        final ListView listView2=(ListView)findViewById(R.id.listView2);
+        ArrayAdapter<String> adapter2=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,ID_COUNTRIES);
+        listView2.setAdapter(adapter2);
+
+        final ListView listView3=(ListView)findViewById(R.id.listView3);
+        ArrayAdapter<String> adapter3=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,ALEVEL);
+        listView3.setAdapter(adapter3);
+
+        final ListView listView4=(ListView)findViewById(R.id.listView4);
+        ArrayAdapter<String> adapter4=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,off_name);
+        listView3.setAdapter(adapter4);
 
 
                     //--test connect WEBSERVICE---
