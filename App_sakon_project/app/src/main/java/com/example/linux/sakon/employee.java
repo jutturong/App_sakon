@@ -60,11 +60,8 @@ public class employee extends TabActivity {
     private final String SOAP_ACTION =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME;
 
     //-------- connect ประวัติแพ้ยา ---
-    private final String METHOD_NAME_drugallergy="drugallergy";
-
-    private final String SOAP_ACTION_drugallergy =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_drugallergy;
-
-
+    private final String METHOD_NAME_drug="drugallergy";
+    private final String SOAP_ACTION_drug =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_drug;
     //-------- connect ประวัติแพ้ยา ---
 
     TabHost mTabHost;
@@ -233,68 +230,46 @@ public class employee extends TabActivity {
             radioF.setChecked(true);
         }
 
-        //--test  tab---
-
-
-                //--test connect WEBSERVICE---
-
-
-
-
-
+        //--test  tab2---
         /*
-        http://203.157.177.121/nusoap/testClientJSON.php?function=chronic&strDatatype=json&strCID=3470100391002
-        function chronic($strUsername,$strPassword,$strDatatype,$strCID)
-        $chronic_varname = array(
-                'strUsername' => "ict",
-                'strPassword' => "skko",
-                'strDatatype'=>"json",
-                'strCID'=>"3470100391002",  //3470100391002
-        );
-        echo "<hr>";
-        echo  "โรคประจำตัว";
-        echo "<br>";
-        $data9=$client->call("chronic",$chronic_varname);  //chronic
-        echo $data9;
-
-
-
-    public String IP="http://203.157.177.121/";
-    private final String NAMESPACE=  IP +  "nusoap/ServerSide.php";
-    private final String METHOD_NAME="person";
-    private final String URL= IP  +   "nusoap/ServerSide.php?wsdl";
-    private final String SOAP_ACTION =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME;
-
-
-
-        //-------- connect ประวัติแพ้ยา ---
-        //private final String METHOD_NAME_drugallergy="chronic";
-       // private final String SOAP_ACTION_drugallergy =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_drugallergy;
-        //-------- connect ประวัติแพ้ยา ---
-
-        */
-
+            //-------- connect ประวัติแพ้ยา ---
+                private final String METHOD_NAME_drug="drugallergy";
+                private final String SOAP_ACTION_drug =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_drug;
+            //-------- connect ประวัติแพ้ยา ---
+         */
         /*
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("strUsername", "ict");
+        request.addProperty("strPassword", "skko");
+        request.addProperty("strDatatype", "json");
+        request.addProperty("strCID", "3471201545502");
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
+                SoapEnvelope.VER11);
+        envelope.setOutputSoapObject(request);
+        HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
+        String resultServer=null;
+
           $drugallergy_varname=array(
          'strUsername' => "ict",
          'strPassword' => "skko",
          'strDatatype'=>"json",
          'strCID'=>"3470100253904",
     );
+
          */
 
-        SoapObject request_drug = new SoapObject(NAMESPACE, METHOD_NAME_drugallergy);
+        SoapObject request_drug = new SoapObject(NAMESPACE,  METHOD_NAME_drug );
         request_drug.addProperty("strUsername", "ict");
         request_drug.addProperty("strPassword", "skko");
         request_drug.addProperty("strDatatype", "json");
         request_drug.addProperty("strCID", "3470100253904");
         SoapSerializationEnvelope envelope_drug = new SoapSerializationEnvelope(
-               SoapEnvelope.VER11);
+                SoapEnvelope.VER11);
         envelope_drug.setOutputSoapObject(request_drug);
         HttpTransportSE androidHttpTransport_drug = new HttpTransportSE(URL);
         String resultServer_drug=null;
         try{
-            androidHttpTransport.call(SOAP_ACTION_drugallergy, envelope_drug );
+            androidHttpTransport.call(SOAP_ACTION_drug,envelope_drug );
             SoapObject result_drug=(SoapObject) envelope.bodyIn;
             resultServer_drug=result_drug.getProperty(0).toString();
         }catch (IOException e)
@@ -304,17 +279,13 @@ public class employee extends TabActivity {
         {
             e.printStackTrace();
         }
-
-
-           JSONObject c_drug;
-           String HOSPCODE="";
-           String ALEVEL_ = "";
-
-        try{
-            c_drug=new JSONObject( resultServer_drug);
-            //cid=c.getString("cid");
+        JSONObject c_drug;
+        String HOSPCODE="";
+        try {
+            c_drug = new JSONObject(resultServer_drug);
             HOSPCODE=c_drug.getString("HOSPCODE");
-            ALEVEL_ =c_drug.getString("ALEVEL");
+
+
 
 
         }catch (JSONException e)
@@ -322,24 +293,10 @@ public class employee extends TabActivity {
             e.printStackTrace();
         }
 
-
-/*
         Toast.makeText(getApplicationContext(),
-                cid_drug
+                AGE
                 ,
                 Toast.LENGTH_LONG).show(); //ok
-*/
-
-        Toast.makeText(getApplicationContext(),
-                HOSPCODE +  ALEVEL_
-                ,
-                Toast.LENGTH_LONG).show(); //ok
-
-
-
-
-
-
 
         final ListView listView1=(ListView)findViewById(R.id.listView1);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,COUNTRIES);
@@ -358,11 +315,7 @@ public class employee extends TabActivity {
         ArrayAdapter<String> adapter4=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,off_name);
         listView3.setAdapter(adapter4);
 
-
-                    //--test connect WEBSERVICE---
-
-
-        //--tab tab---
+        //--tab tab2---
 
     }
 
