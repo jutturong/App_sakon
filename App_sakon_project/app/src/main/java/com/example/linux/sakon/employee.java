@@ -54,13 +54,16 @@ public class employee extends TabActivity {
 
 
     public String IP="http://203.157.177.121/";
+
     private final String NAMESPACE=  IP +  "nusoap/ServerSide.php";
     private final String METHOD_NAME="person";
     private final String URL= IP  +   "nusoap/ServerSide.php?wsdl";
     private final String SOAP_ACTION =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME;
 
     //-------- connect ประวัติแพ้ยา ---
+    private final String NAMESPACE_drug=  IP +  "nusoap/ServerSide.php";
     private final String METHOD_NAME_drug="drugallergy";
+    private final String URL_drug= IP  +   "nusoap/ServerSide.php?wsdl";
     private final String SOAP_ACTION_drug =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_drug;
     //-------- connect ประวัติแพ้ยา ---
 
@@ -231,13 +234,15 @@ public class employee extends TabActivity {
         }
 
         //--test  tab2---
-        /*
-            //-------- connect ประวัติแพ้ยา ---
-                private final String METHOD_NAME_drug="drugallergy";
-                private final String SOAP_ACTION_drug =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_drug;
-            //-------- connect ประวัติแพ้ยา ---
-         */
-        /*
+/*
+
+    //-------- connect ประวัติแพ้ยา ---
+    private final String NAMESPACE_drug=  IP +  "nusoap/ServerSide.php";
+    private final String METHOD_NAME_drug="drugallergy";
+    private final String URL_drug= IP  +   "nusoap/ServerSide.php?wsdl";
+    private final String SOAP_ACTION_drug =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_drug;
+    //-------- connect ประวัติแพ้ยา ---
+
         SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
         request.addProperty("strUsername", "ict");
         request.addProperty("strPassword", "skko");
@@ -249,29 +254,10 @@ public class employee extends TabActivity {
         HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
         String resultServer=null;
 
-          $drugallergy_varname=array(
-         'strUsername' => "ict",
-         'strPassword' => "skko",
-         'strDatatype'=>"json",
-         'strCID'=>"3470100253904",
-    );
-
-         */
-
-        SoapObject request_drug = new SoapObject(NAMESPACE,  METHOD_NAME_drug );
-        request_drug.addProperty("strUsername", "ict");
-        request_drug.addProperty("strPassword", "skko");
-        request_drug.addProperty("strDatatype", "json");
-        request_drug.addProperty("strCID", "3470100253904");
-        SoapSerializationEnvelope envelope_drug = new SoapSerializationEnvelope(
-                SoapEnvelope.VER11);
-        envelope_drug.setOutputSoapObject(request_drug);
-        HttpTransportSE androidHttpTransport_drug = new HttpTransportSE(URL);
-        String resultServer_drug=null;
-        try{
-            androidHttpTransport.call(SOAP_ACTION_drug,envelope_drug );
-            SoapObject result_drug=(SoapObject) envelope.bodyIn;
-            resultServer_drug=result_drug.getProperty(0).toString();
+         try{
+            androidHttpTransport.call(SOAP_ACTION, envelope);
+            SoapObject result=(SoapObject) envelope.bodyIn;
+            resultServer=result.getProperty(0).toString();
         }catch (IOException e)
         {
             e.printStackTrace();
@@ -279,12 +265,55 @@ public class employee extends TabActivity {
         {
             e.printStackTrace();
         }
+
+
+
+  $drugallergy_varname=array(
+         'strUsername' => "ict",
+         'strPassword' => "skko",
+         'strDatatype'=>"json",
+         'strCID'=>"3470100253904",
+    );
+
+
+*/
+        SoapObject request_drug = new SoapObject(NAMESPACE_drug, METHOD_NAME_drug);
+        request_drug.addProperty("strUsername", "ict");
+        request_drug.addProperty("strPassword", "skko");
+        request_drug.addProperty("strDatatype", "json");
+        request_drug.addProperty("strCID", "3470100253904");
+
+        SoapSerializationEnvelope envelope_drug = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        envelope_drug.setOutputSoapObject(request_drug);
+        HttpTransportSE androidHttpTransport_drug = new HttpTransportSE(URL_drug);
+        String resultServer_drug=null;
+
+        try{
+            androidHttpTransport.call(SOAP_ACTION_drug, envelope_drug );
+            SoapObject result_drug=(SoapObject) envelope_drug.bodyIn;
+            resultServer_drug=result_drug.getProperty(0).toString();
+
+
+
+        }catch (IOException e)
+        {
+            e.printStackTrace();
+        }catch (XmlPullParserException e)
+        {
+            e.printStackTrace();
+        }
+
+
         JSONObject c_drug;
         String HOSPCODE="";
-        try {
-            c_drug = new JSONObject(resultServer_drug);
+        try{
+            c_drug=new JSONObject( resultServer_drug );
             HOSPCODE=c_drug.getString("HOSPCODE");
 
+            Toast.makeText(getApplicationContext(),
+                    HOSPCODE
+                    ,
+                    Toast.LENGTH_LONG).show(); //ok
 
 
 
@@ -293,10 +322,16 @@ public class employee extends TabActivity {
             e.printStackTrace();
         }
 
+
+
+        /*
         Toast.makeText(getApplicationContext(),
-                AGE
+                HOSPCODE
                 ,
                 Toast.LENGTH_LONG).show(); //ok
+         */
+
+
 
         final ListView listView1=(ListView)findViewById(R.id.listView1);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,COUNTRIES);
