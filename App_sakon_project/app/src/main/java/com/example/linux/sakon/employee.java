@@ -306,12 +306,17 @@ public class employee extends TabActivity {
 
         JSONObject c_drug;
         String HOSPCODE="";
+        String  ALEVEL_obj="";
+        String off_name_obj="";
+
         try{
             c_drug=new JSONObject( resultServer_drug );
             HOSPCODE=c_drug.getString("HOSPCODE");
+            ALEVEL_obj=c_drug.getString("ALEVEL");
+            off_name_obj=c_drug.getString("off_name");
 
             Toast.makeText(getApplicationContext(),
-                    HOSPCODE
+                    HOSPCODE  +  ALEVEL_obj + off_name_obj
                     ,
                     Toast.LENGTH_LONG).show(); //ok
 
