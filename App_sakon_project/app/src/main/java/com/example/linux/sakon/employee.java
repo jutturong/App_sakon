@@ -335,13 +335,40 @@ public class employee extends TabActivity {
 
 */
 
+
             JSONArray jarr1=new JSONArray();
             JSONArray terminal_arr=jarr1.put(resultServer_drug);
+            Integer count=0;
+            count=jarr1.length();
+
+            /*
             Toast.makeText(getApplicationContext(),
                     jarr1.toString()
                     ,
                     Toast.LENGTH_LONG).show(); //ok
+            */
 
+            Toast.makeText(getApplicationContext(),
+                   count.toString()
+                    ,
+                    Toast.LENGTH_LONG).show(); //ok
+
+
+
+
+
+
+
+
+        //    String strjson=jarr1.toString();
+         //   strjson=strjson.replace("[","").replace("]", "");
+           // strjson=strjson.replace("\\","");
+/*
+            Toast.makeText(getApplicationContext(),
+                    strjson
+                    ,
+                    Toast.LENGTH_LONG).show(); //ok
+*/
 
 
 
