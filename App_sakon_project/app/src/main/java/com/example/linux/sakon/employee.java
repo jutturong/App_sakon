@@ -319,6 +319,27 @@ public class employee extends TabActivity {
             ALEVEL_obj=c_drug.getString("ALEVEL");
             off_name_obj=c_drug.getString("off_name");
 
+            final ArrayList<HashMap<String, String>> MyArrList = new ArrayList<HashMap<String, String>>();
+            HashMap<String, String> map;
+            ArrayList<Integer> arrline1=new ArrayList<Integer>();
+
+            JSONArray jarr1=new JSONArray();
+            JSONArray terminal_arr=jarr1.put(resultServer_drug);
+            Integer count=0;
+            count=jarr1.length();
+            map = new HashMap<String, String>();
+            arrline1.add(c_drug.getInt("HOSPCODE"));
+            map.put("HOSPCODE", c_drug.getString("HOSPCODE"));
+            map.put("ALEVEL", c_drug.getString("ALEVEL"));
+            map.put("off_name", c_drug.getString("off_name"));
+            MyArrList.add(map);
+
+            Toast.makeText(getApplicationContext(),
+                    MyArrList.toString()
+                    ,
+                    Toast.LENGTH_LONG).show(); //ok
+
+
 /*
             Toast.makeText(getApplicationContext(),
                 c_drug.length()   +  HOSPCODE  +  ALEVEL_obj + off_name_obj
@@ -335,11 +356,12 @@ public class employee extends TabActivity {
 
 */
 
-
+/*
             JSONArray jarr1=new JSONArray();
             JSONArray terminal_arr=jarr1.put(resultServer_drug);
             Integer count=0;
             count=jarr1.length();
+   */
 
             /*
             Toast.makeText(getApplicationContext(),
@@ -348,10 +370,13 @@ public class employee extends TabActivity {
                     Toast.LENGTH_LONG).show(); //ok
             */
 
+            /*
             Toast.makeText(getApplicationContext(),
                    count.toString()
                     ,
                     Toast.LENGTH_LONG).show(); //ok
+            */
+
 
 
 
