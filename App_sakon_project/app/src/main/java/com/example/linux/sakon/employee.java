@@ -326,29 +326,19 @@ public class employee extends TabActivity {
                     Toast.LENGTH_LONG).show(); //ok
 */
 
-/*
+
             //resultServer_drug  คือ json string
             Toast.makeText(getApplicationContext(),
                     resultServer_drug
                     ,
                     Toast.LENGTH_LONG).show(); //ok
- */
 
-            JSONArray jarr1=new JSONArray();
-            JSONArray terminal_arr=jarr1.put(resultServer_drug);
 
-            /*
-            Toast.makeText(getApplicationContext(),
-                   // terminal_arr.toString()
+         //   JSONArray jarr1=new JSONArray();
+         //   JSONArray terminal_arr=jarr1.put(resultServer_drug);
 
-                    ,
-                    Toast.LENGTH_LONG).show(); //ok
-                */
 
-            Toast.makeText(getApplicationContext(),
-                  jarr1.toString()
-                    ,
-                    Toast.LENGTH_LONG).show(); //ok
+
 
 
 
@@ -393,6 +383,8 @@ public class employee extends TabActivity {
         ArrayAdapter<String> adapter4=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,off_name);
         listView3.setAdapter(adapter4);
         */
+
+
 
 
         //--tab tab2---
