@@ -76,6 +76,8 @@ public class employee extends TabActivity {
             "PENICILLIN V Dry. Syrup", "PENICILLIN V 400,000 Cap.", "CLOXACILLIN 250 MG.(N)", "AUGMENTIN 625 MG.", "PENICILLIN V 250 MG (ก)"
     };
 
+
+
     private static final String[] ID_COUNTRIES = new String[] {
             "05444", "05444", "10710", "10710", "10710"
     };
@@ -309,16 +311,30 @@ public class employee extends TabActivity {
         String  ALEVEL_obj="";
         String off_name_obj="";
 
+
+
         try{
             c_drug=new JSONObject( resultServer_drug );
             HOSPCODE=c_drug.getString("HOSPCODE");
             ALEVEL_obj=c_drug.getString("ALEVEL");
             off_name_obj=c_drug.getString("off_name");
 
+/*
             Toast.makeText(getApplicationContext(),
-                    HOSPCODE  +  ALEVEL_obj + off_name_obj
+                c_drug.length()   +  HOSPCODE  +  ALEVEL_obj + off_name_obj
                     ,
                     Toast.LENGTH_LONG).show(); //ok
+*/
+
+/*
+            //resultServer_drug  คือ json string
+            Toast.makeText(getApplicationContext(),
+                    resultServer_drug
+                    ,
+                    Toast.LENGTH_LONG).show(); //ok
+ */
+
+
 
 
 
@@ -329,17 +345,25 @@ public class employee extends TabActivity {
 
 
 
-        /*
-        Toast.makeText(getApplicationContext(),
-                HOSPCODE
-                ,
-                Toast.LENGTH_LONG).show(); //ok
-         */
 
 
 
+
+
+/*
+ private static final String[] COUNTRIES = new String[] {
+            "PENICILLIN V Dry. Syrup", "PENICILLIN V 400,000 Cap.", "CLOXACILLIN 250 MG.(N)", "AUGMENTIN 625 MG.", "PENICILLIN V 250 MG (ก)"
+    };
         final ListView listView1=(ListView)findViewById(R.id.listView1);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,COUNTRIES);
+*/
+
+        
+
+        final ListView listView1=(ListView)findViewById(R.id.listView1);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, COUNTRIES );
+
+
 
         listView1.setAdapter(adapter);
 
