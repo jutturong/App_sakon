@@ -326,17 +326,21 @@ public class employee extends TabActivity {
                     Toast.LENGTH_LONG).show(); //ok
 */
 
-
+/*
             //resultServer_drug  คือ json string
             Toast.makeText(getApplicationContext(),
                     resultServer_drug
                     ,
                     Toast.LENGTH_LONG).show(); //ok
 
+*/
 
-         //   JSONArray jarr1=new JSONArray();
-         //   JSONArray terminal_arr=jarr1.put(resultServer_drug);
-
+            JSONArray jarr1=new JSONArray();
+            JSONArray terminal_arr=jarr1.put(resultServer_drug);
+            Toast.makeText(getApplicationContext(),
+                    jarr1.toString()
+                    ,
+                    Toast.LENGTH_LONG).show(); //ok
 
 
 
