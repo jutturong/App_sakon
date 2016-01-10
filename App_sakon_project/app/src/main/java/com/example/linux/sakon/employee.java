@@ -334,7 +334,21 @@ public class employee extends TabActivity {
                     Toast.LENGTH_LONG).show(); //ok
  */
 
+            JSONArray jarr1=new JSONArray();
+            JSONArray terminal_arr=jarr1.put(resultServer_drug);
 
+            /*
+            Toast.makeText(getApplicationContext(),
+                   // terminal_arr.toString()
+
+                    ,
+                    Toast.LENGTH_LONG).show(); //ok
+                */
+
+            Toast.makeText(getApplicationContext(),
+                  jarr1.toString()
+                    ,
+                    Toast.LENGTH_LONG).show(); //ok
 
 
 
@@ -358,8 +372,8 @@ public class employee extends TabActivity {
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,COUNTRIES);
 */
 
-        
 
+/*
         final ListView listView1=(ListView)findViewById(R.id.listView1);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, COUNTRIES );
 
@@ -378,6 +392,8 @@ public class employee extends TabActivity {
         final ListView listView4=(ListView)findViewById(R.id.listView4);
         ArrayAdapter<String> adapter4=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,off_name);
         listView3.setAdapter(adapter4);
+        */
+
 
         //--tab tab2---
 
