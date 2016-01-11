@@ -310,34 +310,65 @@ public class employee extends TabActivity {
         String HOSPCODE="";
         String  ALEVEL_obj="";
         String off_name_obj="";
+        String DNAME="";
+        String ALEVEL="";
+
+        List<String>list_HOSPCODE=new ArrayList<String>();
+        List<String>list_DNAME=new ArrayList<String>();
+        List<String>list_ALEVEL=new ArrayList<String>();
+        List<String>list_off_name=new ArrayList<String>();
 
 
 
         try{
             c_drug=new JSONObject( resultServer_drug );
+            /*
             HOSPCODE=c_drug.getString("HOSPCODE");
             ALEVEL_obj=c_drug.getString("ALEVEL");
             off_name_obj=c_drug.getString("off_name");
+            DNAME=c_drug.getString("DNAME");
+            */
 
-            final ArrayList<HashMap<String, String>> MyArrList = new ArrayList<HashMap<String, String>>();
-            HashMap<String, String> map;
-            ArrayList<Integer> arrline1=new ArrayList<Integer>();
 
-            JSONArray jarr1=new JSONArray();
-            JSONArray terminal_arr=jarr1.put(resultServer_drug);
-            Integer count=0;
-            count=jarr1.length();
-            map = new HashMap<String, String>();
-            arrline1.add(c_drug.getInt("HOSPCODE"));
-            map.put("HOSPCODE", c_drug.getString("HOSPCODE"));
-            map.put("ALEVEL", c_drug.getString("ALEVEL"));
-            map.put("off_name", c_drug.getString("off_name"));
-            MyArrList.add(map);
+            list_HOSPCODE.add(c_drug.getString("HOSPCODE"));
+            list_DNAME.add(c_drug.getString("DNAME"));
+            list_ALEVEL.add(c_drug.getString("ALEVEL"));
+            list_off_name.add(c_drug.getString("off_name"));
 
+            /*
             Toast.makeText(getApplicationContext(),
-                    MyArrList.toString()
+                    list1.toString()
                     ,
                     Toast.LENGTH_LONG).show(); //ok
+                    */
+
+
+
+
+
+
+
+
+            final ListView listView1=(ListView)findViewById(R.id.listView1);
+            ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list_HOSPCODE );
+            listView1.setAdapter(adapter);
+
+
+            final ListView listView2=(ListView)findViewById(R.id.listView2);
+            ArrayAdapter<String> adapter2=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list_DNAME);
+            listView2.setAdapter(adapter2);
+
+
+            final ListView listView3=(ListView)findViewById(R.id.listView3);
+            ArrayAdapter<String> adapter3=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list_ALEVEL);
+            listView3.setAdapter(adapter3);
+
+
+            final ListView listView4=(ListView)findViewById(R.id.listView4);
+            ArrayAdapter<String> adapter4=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list_off_name);
+            listView3.setAdapter(adapter4);
+
+
 
 
 /*
@@ -438,7 +469,7 @@ public class employee extends TabActivity {
         final ListView listView4=(ListView)findViewById(R.id.listView4);
         ArrayAdapter<String> adapter4=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,off_name);
         listView3.setAdapter(adapter4);
-        */
+*/
 
 
 
