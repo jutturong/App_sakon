@@ -1,5 +1,6 @@
 package com.example.linux.sakon;
 
+import android.app.AlertDialog;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -320,7 +321,15 @@ public class employee extends TabActivity {
 
 
 
+
+        AlertDialog.Builder adb=new AlertDialog.Builder(this);
+        AlertDialog ad=adb.create();
+            JSONObject  c_drug2;
+
         try{
+
+
+
             c_drug=new JSONObject( resultServer_drug );
             /*
             HOSPCODE=c_drug.getString("HOSPCODE");
@@ -328,6 +337,12 @@ public class employee extends TabActivity {
             off_name_obj=c_drug.getString("off_name");
             DNAME=c_drug.getString("DNAME");
             */
+
+            /*ทดสอบ messagebox */
+
+             /*ทดสอบ messagebox */
+
+
 
 
             list_HOSPCODE.add(c_drug.getString("HOSPCODE"));
@@ -371,35 +386,6 @@ public class employee extends TabActivity {
 
 
 
-/*
-            Toast.makeText(getApplicationContext(),
-                c_drug.length()   +  HOSPCODE  +  ALEVEL_obj + off_name_obj
-                    ,
-                    Toast.LENGTH_LONG).show(); //ok
-*/
-
-/*
-            //resultServer_drug  คือ json string
-            Toast.makeText(getApplicationContext(),
-                    resultServer_drug
-                    ,
-                    Toast.LENGTH_LONG).show(); //ok
-
-*/
-
-/*
-            JSONArray jarr1=new JSONArray();
-            JSONArray terminal_arr=jarr1.put(resultServer_drug);
-            Integer count=0;
-            count=jarr1.length();
-   */
-
-            /*
-            Toast.makeText(getApplicationContext(),
-                    jarr1.toString()
-                    ,
-                    Toast.LENGTH_LONG).show(); //ok
-            */
 
             /*
             Toast.makeText(getApplicationContext(),
@@ -412,69 +398,18 @@ public class employee extends TabActivity {
 
 
 
-
-
-
-
-        //    String strjson=jarr1.toString();
-         //   strjson=strjson.replace("[","").replace("]", "");
-           // strjson=strjson.replace("\\","");
-/*
-            Toast.makeText(getApplicationContext(),
-                    strjson
-                    ,
-                    Toast.LENGTH_LONG).show(); //ok
-*/
-
-
-
-
         }catch (JSONException e)
         {
             e.printStackTrace();
         }
 
 
+        //--tab tab2 ok complete---
+
+        //----  tab 3  ---
 
 
 
-
-
-
-/*
- private static final String[] COUNTRIES = new String[] {
-            "PENICILLIN V Dry. Syrup", "PENICILLIN V 400,000 Cap.", "CLOXACILLIN 250 MG.(N)", "AUGMENTIN 625 MG.", "PENICILLIN V 250 MG (ก)"
-    };
-        final ListView listView1=(ListView)findViewById(R.id.listView1);
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,COUNTRIES);
-*/
-
-
-/*
-        final ListView listView1=(ListView)findViewById(R.id.listView1);
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, COUNTRIES );
-
-
-
-        listView1.setAdapter(adapter);
-
-        final ListView listView2=(ListView)findViewById(R.id.listView2);
-        ArrayAdapter<String> adapter2=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,ID_COUNTRIES);
-        listView2.setAdapter(adapter2);
-
-        final ListView listView3=(ListView)findViewById(R.id.listView3);
-        ArrayAdapter<String> adapter3=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,ALEVEL);
-        listView3.setAdapter(adapter3);
-
-        final ListView listView4=(ListView)findViewById(R.id.listView4);
-        ArrayAdapter<String> adapter4=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,off_name);
-        listView3.setAdapter(adapter4);
-*/
-
-
-
-
-        //--tab tab2---
 
     }
 
