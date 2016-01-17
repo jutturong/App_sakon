@@ -441,20 +441,28 @@ public class employee extends TabActivity {
             e.printStackTrace();
         }
 
-        JSONObject c_chronic;
+JSONObject c_chronic;
         String off_name="";
         String tchronic="";
+
        try{
            c_chronic=new JSONObject( resultServer_chronic );
+           off_name=c_chronic.getString("off_name");
+        //   tchronic=c_chronic.getString("tchronic");
 
 
 
+    // alert success
            Toast.makeText(getApplicationContext(),
-                   resultServer_chronic
+                   off_name
                    ,
                    Toast.LENGTH_LONG).show(); //ok
 
-           
+
+
+
+
+
 
        }
        catch (JSONException e)
