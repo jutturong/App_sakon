@@ -68,6 +68,13 @@ public class employee extends TabActivity {
     private final String SOAP_ACTION_drug =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_drug;
     //-------- connect ประวัติแพ้ยา ---
 
+    //--------- connect โรคประจำตัว chronic--------
+    private final String NAMESPACE_chronic=  IP +  "nusoap/ServerSide.php";
+    private final String METHOD_NAME_chronic="chronic";
+    private final String URL_chronic= IP  +   "nusoap/ServerSide.php?wsdl";
+    private final String SOAP_ACTION_chronic =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_chronic;
+    //--------- connect โรคประจำตัว chronic--------
+
     TabHost mTabHost;
 
     String[] arr_picture={"เลือกภาพ"};
@@ -407,7 +414,55 @@ public class employee extends TabActivity {
         //--tab tab2 ok complete---
 
         //----  tab 3  ---
+        SoapObject request_chronic = new SoapObject(NAMESPACE_chronic, METHOD_NAME_chronic);
+        request_drug.addProperty("strUsername", "ict");
+        request_drug.addProperty("strPassword", "skko");
+        request_drug.addProperty("strDatatype", "json");
+        request_drug.addProperty("strCID", "3470100391002");
 
+        SoapSerializationEnvelope envelope_chronic = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        envelope_chronic.setOutputSoapObject(request_chronic);
+        HttpTransportSE androidHttpTransport_chronic = new HttpTransportSE(URL_chronic);
+        String resultServer_chronic=null;
+
+        try{
+            androidHttpTransport.call(SOAP_ACTION_chronic, envelope_chronic );
+            SoapObject result_chronic=(SoapObject) envelope_drug.bodyIn;
+            resultServer_chronic=result_chronic.getProperty(0).toString();
+
+
+
+        }catch (IOException e)
+        {
+            e.printStackTrace();
+
+        }catch (XmlPullParserException e)
+        {
+            e.printStackTrace();
+        }
+
+        JSONObject c_chronic;
+        String off_name="";
+        String tchronic="";
+       try{
+           c_chronic=new JSONObject( resultServer_chronic );
+
+
+
+           Toast.makeText(getApplicationContext(),
+                   resultServer_chronic
+                   ,
+                   Toast.LENGTH_LONG).show(); //ok
+
+           
+
+       }
+       catch (JSONException e)
+       {
+           e.printStackTrace();
+       }
+
+        //----  tab 3  ---
 
 
 
