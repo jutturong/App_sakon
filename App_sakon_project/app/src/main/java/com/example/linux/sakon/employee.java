@@ -443,12 +443,12 @@ public class employee extends TabActivity {
 
 JSONObject c_chronic;
         String off_name="";
-        String tchronic="";
+        String sr_chronic="";
 
        try{
            c_chronic=new JSONObject( resultServer_chronic );
            off_name=c_chronic.getString("off_name");
-        //   tchronic=c_chronic.getString("tchronic");
+          // sr_chronic=c_chronic.getString("tchronic");
 
 
 
