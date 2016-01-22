@@ -312,10 +312,11 @@ public class employee extends TabActivity {
         JSONObject c_drug2;
         JSONArray  c_json2;
         String HOSPCODE="";
-        String  ALEVEL_obj="";
-        String off_name_obj="";
         String DNAME="";
-        String ALEVEL="";
+        String  ALEVEL="";
+        String off_name="";
+
+
 
         List<String>list_HOSPCODE=new ArrayList<String>();
         List<String>list_DNAME=new ArrayList<String>();
@@ -350,11 +351,17 @@ public class employee extends TabActivity {
                           */
 
                   c_drug2=c_json2.getJSONObject(i);
+
                   HOSPCODE=c_drug2.getString("HOSPCODE");
-                  list_HOSPCODE.add(HOSPCODE); //OK
-                  
+                  DNAME=c_drug2.getString("DNAME");
+                  ALEVEL=c_drug2.getString("ALEVEL");
+                  off_name=c_drug2.getString("off_name");
 
 
+                  list_HOSPCODE.add(HOSPCODE + "  " + DNAME + " " + ALEVEL + " " + off_name ); //OK
+                  list_DNAME.add(DNAME); //ok
+                  list_ALEVEL.add(ALEVEL); //ok
+                  list_off_name.add(off_name); //ok
 
               }
 
@@ -373,6 +380,22 @@ public class employee extends TabActivity {
         final ListView listView1=(ListView)findViewById(R.id.listView1);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list_HOSPCODE );
         listView1.setAdapter(adapter);
+
+
+/*
+        final ListView listView2=(ListView)findViewById(R.id.listView2);
+        ArrayAdapter<String> adapter2=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list_DNAME );
+        listView2.setAdapter(adapter2);
+
+        final ListView listView3=(ListView)findViewById(R.id.listView3);
+        ArrayAdapter<String> adapter3=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list_ALEVEL );
+        listView3.setAdapter(adapter3);
+
+        final ListView listView4=(ListView)findViewById(R.id.listView4);
+        ArrayAdapter<String> adapter4=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,  list_off_name );
+        listView3.setAdapter(adapter4);
+*/
+
 
 /*
         AlertDialog.Builder adb=new AlertDialog.Builder(this);
