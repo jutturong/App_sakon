@@ -349,6 +349,12 @@ public class employee extends TabActivity {
                           Toast.LENGTH_LONG).show(); //ok
                           */
 
+                  c_drug2=c_json2.getJSONObject(i);
+                  HOSPCODE=c_drug2.getString("HOSPCODE");
+                  list_HOSPCODE.add(HOSPCODE); //OK
+                  
+
+
 
               }
 
@@ -357,6 +363,16 @@ public class employee extends TabActivity {
               e.printStackTrace();
           }
 
+        /*
+        Toast.makeText(getApplicationContext(),
+                list_HOSPCODE.toString()
+                ,
+                Toast.LENGTH_LONG).show(); //ok
+                */
+
+        final ListView listView1=(ListView)findViewById(R.id.listView1);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list_HOSPCODE );
+        listView1.setAdapter(adapter);
 
 /*
         AlertDialog.Builder adb=new AlertDialog.Builder(this);
@@ -373,6 +389,7 @@ public class employee extends TabActivity {
 */
 
 
+        /*
         final ListView listView1=(ListView)findViewById(R.id.listView1);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, COUNTRIES );
         listView1.setAdapter(adapter);
@@ -391,7 +408,7 @@ public class employee extends TabActivity {
         final ListView listView4=(ListView)findViewById(R.id.listView4);
         ArrayAdapter<String> adapter4=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,  off_name );
         listView3.setAdapter(adapter4);
-
+*/
 
 
 
