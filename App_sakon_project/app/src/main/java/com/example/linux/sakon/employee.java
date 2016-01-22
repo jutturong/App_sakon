@@ -310,6 +310,7 @@ public class employee extends TabActivity {
 
 
         JSONObject c_drug2;
+        JSONArray  c_json2;
         String HOSPCODE="";
         String  ALEVEL_obj="";
         String off_name_obj="";
@@ -329,7 +330,27 @@ public class employee extends TabActivity {
                       Toast.LENGTH_LONG).show(); //ok
                       */
 
-              
+              c_json2=new JSONArray(resultServer_drug);
+
+              /*
+              Toast.makeText(getApplicationContext(),
+                      c_json2.toString()
+                      ,
+                      Toast.LENGTH_LONG).show(); //ok
+                      */
+
+              for(int i=0;i<=c_json2.length();i++)
+              {
+                 // c_drug2=c_json2.getJSONObject(i);
+                  /*   //Loop OK
+                  Toast.makeText(getApplicationContext(),
+                          c_json2.getJSONObject(i).toString()
+                          ,
+                          Toast.LENGTH_LONG).show(); //ok
+                          */
+
+
+              }
 
           }catch (Exception e)
           {
