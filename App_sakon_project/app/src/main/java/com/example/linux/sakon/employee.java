@@ -68,12 +68,7 @@ public class employee extends TabActivity {
     private final String SOAP_ACTION_drug =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_drug;
     //-------- connect ประวัติแพ้ยา ---
 
-    //--------- connect โรคประจำตัว chronic--------
-    private final String NAMESPACE_chronic=  IP +  "nusoap/ServerSide.php";
-    private final String METHOD_NAME_chronic="chronic";
-    private final String URL_chronic= IP  +   "nusoap/ServerSide.php?wsdl";
-    private final String SOAP_ACTION_chronic =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_chronic;
-    //--------- connect โรคประจำตัว chronic--------
+
 
     TabHost mTabHost;
 
@@ -90,7 +85,7 @@ public class employee extends TabActivity {
             "05444", "05444", "10710", "10710", "10710"
     };
 
-    private static final String[] ALEVEL = new String[] {
+    private static final String[] ALEVELarr = new String[] {
             "ร้ายแรง - อัตรายถึงชีวิต (Life-threatening)", "ร้ายแรง - อัตรายถึงชีวิต (Life-threatening)", "ไม่ร้ายแรง (Non-serious)", "ไม่ร้ายแรง (Non-serious)", "ไม่ร้ายแรง (Non-serious)"
     };
 
@@ -314,7 +309,7 @@ public class employee extends TabActivity {
         }
 
 
-        JSONObject c_drug;
+        JSONObject c_drug2;
         String HOSPCODE="";
         String  ALEVEL_obj="";
         String off_name_obj="";
@@ -325,150 +320,64 @@ public class employee extends TabActivity {
         List<String>list_DNAME=new ArrayList<String>();
         List<String>list_ALEVEL=new ArrayList<String>();
         List<String>list_off_name=new ArrayList<String>();
+          try{
+              /*
+              //ok complete to  http://203.157.177.121/nusoap/ClientSide.php
+              Toast.makeText(getApplicationContext(),
+                      resultServer_drug
+                      ,
+                      Toast.LENGTH_LONG).show(); //ok
+                      */
+
+              
+
+          }catch (Exception e)
+          {
+              e.printStackTrace();
+          }
 
 
-
-
+/*
         AlertDialog.Builder adb=new AlertDialog.Builder(this);
         AlertDialog ad=adb.create();
-            JSONObject  c_drug2;
-
-        try{
-
+        JSONObject  c_drug2;
+*/
 
 
-            c_drug=new JSONObject( resultServer_drug );
-            /*
-            HOSPCODE=c_drug.getString("HOSPCODE");
-            ALEVEL_obj=c_drug.getString("ALEVEL");
-            off_name_obj=c_drug.getString("off_name");
-            DNAME=c_drug.getString("DNAME");
-            */
-
-            /*ทดสอบ messagebox */
-
-             /*ทดสอบ messagebox */
+/*
+        Toast.makeText(getApplicationContext(),
+                "ทดสอบ"
+                ,
+                Toast.LENGTH_LONG).show(); //ok
+*/
 
 
+        final ListView listView1=(ListView)findViewById(R.id.listView1);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, COUNTRIES );
+        listView1.setAdapter(adapter);
 
 
-            list_HOSPCODE.add(c_drug.getString("HOSPCODE"));
-            list_DNAME.add(c_drug.getString("DNAME"));
-            list_ALEVEL.add(c_drug.getString("ALEVEL"));
-            list_off_name.add(c_drug.getString("off_name"));
-
-            /*
-            Toast.makeText(getApplicationContext(),
-                    list1.toString()
-                    ,
-                    Toast.LENGTH_LONG).show(); //ok
-                    */
+        final ListView listView2=(ListView)findViewById(R.id.listView2);
+        ArrayAdapter<String> adapter2=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, ID_COUNTRIES );
+        listView2.setAdapter(adapter2);
 
 
+        final ListView listView3=(ListView)findViewById(R.id.listView3);
+        ArrayAdapter<String> adapter3=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, ALEVELarr );
+        listView3.setAdapter(adapter3);
 
 
+        final ListView listView4=(ListView)findViewById(R.id.listView4);
+        ArrayAdapter<String> adapter4=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,  off_name );
+        listView3.setAdapter(adapter4);
 
 
-
-
-            final ListView listView1=(ListView)findViewById(R.id.listView1);
-            ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list_HOSPCODE );
-            listView1.setAdapter(adapter);
-
-
-            final ListView listView2=(ListView)findViewById(R.id.listView2);
-            ArrayAdapter<String> adapter2=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list_DNAME);
-            listView2.setAdapter(adapter2);
-
-
-            final ListView listView3=(ListView)findViewById(R.id.listView3);
-            ArrayAdapter<String> adapter3=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list_ALEVEL);
-            listView3.setAdapter(adapter3);
-
-
-            final ListView listView4=(ListView)findViewById(R.id.listView4);
-            ArrayAdapter<String> adapter4=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list_off_name);
-            listView3.setAdapter(adapter4);
-
-
-
-
-
-            /*
-            Toast.makeText(getApplicationContext(),
-                   count.toString()
-                    ,
-                    Toast.LENGTH_LONG).show(); //ok
-            */
-
-
-
-
-
-        }catch (JSONException e)
-        {
-            e.printStackTrace();
-        }
 
 
         //--tab tab2 ok complete---
 
         //----  tab 3  ---
-        SoapObject request_chronic = new SoapObject(NAMESPACE_chronic, METHOD_NAME_chronic);
-        request_drug.addProperty("strUsername", "ict");
-        request_drug.addProperty("strPassword", "skko");
-        request_drug.addProperty("strDatatype", "json");
-        request_drug.addProperty("strCID", "3470100391002");
 
-        SoapSerializationEnvelope envelope_chronic = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-        envelope_chronic.setOutputSoapObject(request_chronic);
-        HttpTransportSE androidHttpTransport_chronic = new HttpTransportSE(URL_chronic);
-        String resultServer_chronic=null;
-
-        try{
-            androidHttpTransport.call(SOAP_ACTION_chronic, envelope_chronic );
-            SoapObject result_chronic=(SoapObject) envelope_drug.bodyIn;
-            resultServer_chronic=result_chronic.getProperty(0).toString();
-
-
-
-        }catch (IOException e)
-        {
-            e.printStackTrace();
-
-        }catch (XmlPullParserException e)
-        {
-            e.printStackTrace();
-        }
-
-JSONObject c_chronic;
-        String off_name="";
-        String sr_chronic="";
-
-       try{
-           c_chronic=new JSONObject( resultServer_chronic );
-           off_name=c_chronic.getString("off_name");
-          // sr_chronic=c_chronic.getString("tchronic");
-
-
-
-    // alert success
-           Toast.makeText(getApplicationContext(),
-                   off_name
-                   ,
-                   Toast.LENGTH_LONG).show(); //ok
-
-
-
-
-
-
-
-       }
-       catch (JSONException e)
-       {
-           e.printStackTrace();
-       }
 
         //----  tab 3  ---
 
