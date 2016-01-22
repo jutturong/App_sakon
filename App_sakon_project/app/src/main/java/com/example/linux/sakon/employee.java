@@ -319,7 +319,7 @@ public class employee extends TabActivity {
 
 
         List<String>list_HOSPCODE=new ArrayList<String>();
-        list_HOSPCODE.add(" รหัสสถานบริการ                      ชื่อยา                             ความรุนแรง      ชื่อสถานบริการ ");
+        //list_HOSPCODE.add(" รหัสสถานบริการ/ชื่อยา/ความรุนแรง/ชื่อสถานบริการ ");
         List<String>list_DNAME=new ArrayList<String>();
         List<String>list_ALEVEL=new ArrayList<String>();
         List<String>list_off_name=new ArrayList<String>();
@@ -359,7 +359,7 @@ public class employee extends TabActivity {
                   off_name=c_drug2.getString("off_name");
 
 
-                  list_HOSPCODE.add("     "  +   HOSPCODE + "              " + DNAME + " " + ALEVEL + " " + off_name ); //OK
+                  list_HOSPCODE.add(HOSPCODE + "-" + DNAME + "-" + ALEVEL + "-" + off_name ); //OK
                   list_DNAME.add(DNAME); //ok
                   list_ALEVEL.add(ALEVEL); //ok
                   list_off_name.add(off_name); //ok
