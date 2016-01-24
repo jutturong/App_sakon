@@ -21,11 +21,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="130dp"
         android:text="การตรวจร้านค้า"
-        android:textSize="11dp"
-
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
         />
 
     <ImageView
@@ -43,11 +44,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="140dp"
         android:layout_marginTop="130dp"
         android:text="แหล่งผลิตน้ำดื่ม"
-        android:textSize="11dp"
-
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
         />
 
 
@@ -66,11 +68,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="260dp"
+        android:layout_marginLeft="250dp"
         android:layout_marginTop="130dp"
         android:text="เผ้าระวัง/ภัยสุขภาพ"
-        android:textSize="11dp"
-
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
         />
 
 
@@ -92,8 +95,9 @@
         android:layout_marginLeft="25dp"
         android:layout_marginTop="220dp"
         android:text="ตรวจสุขภาพ"
-        android:textSize="11dp"
-
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
         />
 
 
@@ -115,8 +119,9 @@
         android:layout_marginLeft="150dp"
         android:layout_marginTop="220dp"
         android:text="ธาตุเจ้าเรือน"
-        android:textSize="11dp"
-
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
         />
 
 
@@ -139,8 +144,9 @@
         android:layout_marginLeft="280dp"
         android:layout_marginTop="220dp"
         android:text="ใบสมัคร"
-        android:textSize="11dp"
-
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
         />
 
 <!--
