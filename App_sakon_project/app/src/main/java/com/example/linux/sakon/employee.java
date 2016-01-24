@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
@@ -142,6 +143,8 @@ public class employee extends TabActivity {
         ArrayAdapter<String> arrAd=new ArrayAdapter<String>(employee.this,android.R.layout.simple_spinner_item,arr_picture);
         arrAd.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinner_picture1.setAdapter(arrAd);
+
+
 
 
 
@@ -520,6 +523,7 @@ public class employee extends TabActivity {
 
         String off_name_chronic="";
         String tchronic_chronic="";
+        List<String>list_chronic=new ArrayList<String>();
 
         try{
               json_chronic=new JSONArray(resultServer_chronic);
@@ -532,18 +536,37 @@ public class employee extends TabActivity {
                     Toast.LENGTH_LONG).show(); //ok
                     */
 
+
+
             for(int i=0;i<json_chronic.length();i++)
             {
                 obj_chronic=json_chronic.getJSONObject(i);
 
-                /*
+/*
                 Toast.makeText(getApplicationContext(),
                         obj_chronic.getString("off_name")
                         +
                                 obj_chronic.getString("tchronic")
                         ,
                         Toast.LENGTH_LONG).show(); //ok
+  */
+
+                off_name_chronic=obj_chronic.getString("off_name");
+                tchronic_chronic=obj_chronic.getString("tchronic");
+
+                list_chronic.add( off_name_chronic  +  tchronic_chronic  );
+
+              //  list_chronic.add( obj_chronic.getString("tchronic")  );
+
+                /*
+                Toast.makeText(getApplicationContext(),
+                        list_chronic.toString()
+                        ,
+                        Toast.LENGTH_LONG).show(); //ok
                         */
+
+
+
 
             }
 
@@ -552,6 +575,11 @@ public class employee extends TabActivity {
         {
             e.printStackTrace();
         }
+
+        ListView listView1_tab3=(ListView) findViewById(R.id.listView1_tab3);
+        ArrayAdapter<String > adapter_tab3=new ArrayAdapter<String>(employee.this,android.R.layout.simple_list_item_1, list_chronic);
+        listView1_tab3.setAdapter(adapter_tab3);
+
 
         //----  tab 3  ---
 
