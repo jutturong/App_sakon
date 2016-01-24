@@ -524,12 +524,29 @@ public class employee extends TabActivity {
         try{
               json_chronic=new JSONArray(resultServer_chronic);
 
-             //ok
+
+            /*  //ok
             Toast.makeText(getApplicationContext(),
                     json_chronic.toString()
                     ,
                     Toast.LENGTH_LONG).show(); //ok
-            
+                    */
+
+            for(int i=0;i<json_chronic.length();i++)
+            {
+                obj_chronic=json_chronic.getJSONObject(i);
+
+                /*
+                Toast.makeText(getApplicationContext(),
+                        obj_chronic.getString("off_name")
+                        +
+                                obj_chronic.getString("tchronic")
+                        ,
+                        Toast.LENGTH_LONG).show(); //ok
+                        */
+
+            }
+
 
         }catch (Exception e)
         {
