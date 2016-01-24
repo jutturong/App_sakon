@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.MediaStore;
@@ -68,7 +69,12 @@ public class employee extends TabActivity {
     private final String SOAP_ACTION_drug =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_drug;
     //-------- connect ประวัติแพ้ยา ---
 
-
+    //--------- connect โรคประจำตัว -----
+    private final String NAMESPACE_chronic=  IP +  "nusoap/ServerSide.php";
+    private final String METHOD_NAME_chronic="chronic";
+    private final String URL_chronic= IP  +   "nusoap/ServerSide.php?wsdl";
+    private final String SOAP_ACTION_chronic =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_chronic;
+    //--------- connect โรคประจำตัว -----
 
     TabHost mTabHost;
 
@@ -359,7 +365,7 @@ public class employee extends TabActivity {
                   off_name=c_drug2.getString("off_name");
 
 
-                  list_HOSPCODE.add(HOSPCODE + "-" + DNAME + "-" + ALEVEL + "-" + off_name ); //OK
+                  list_HOSPCODE.add(HOSPCODE + "/" + DNAME + "/" + ALEVEL + "/" + off_name ); //OK
                   list_DNAME.add(DNAME); //ok
                   list_ALEVEL.add(ALEVEL); //ok
                   list_off_name.add(off_name); //ok
@@ -379,7 +385,9 @@ public class employee extends TabActivity {
                 */
 
         final ListView listView1=(ListView)findViewById(R.id.listView1);
+
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list_HOSPCODE );
+
         listView1.setAdapter(adapter);
 
 
@@ -439,7 +447,94 @@ public class employee extends TabActivity {
         //--tab tab2 ok complete---
 
         //----  tab 3  ---
+/*
 
+    //--------- connect โรคประจำตัว -----
+    private final String NAMESPACE_chronic=  IP +  "nusoap/ServerSide.php";
+    private final String METHOD_NAME_chronic="chronic";
+    private final String URL_chronic= IP  +   "nusoap/ServerSide.php?wsdl";
+    private final String SOAP_ACTION_chronic =   IP  +  "nusoap/ServerSide.php/" + METHOD_NAME_chronic;
+    //--------- connect โรคประจำตัว -----
+
+        SoapObject request_drug = new SoapObject(NAMESPACE_drug, METHOD_NAME_drug);
+        request_drug.addProperty("strUsername", "ict");
+        request_drug.addProperty("strPassword", "skko");
+        request_drug.addProperty("strDatatype", "json");
+        request_drug.addProperty("strCID", "3470100253904");
+
+        SoapSerializationEnvelope envelope_drug = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        envelope_drug.setOutputSoapObject(request_drug);
+        HttpTransportSE androidHttpTransport_drug = new HttpTransportSE(URL_drug);
+        String resultServer_drug=null;
+
+        try{
+            androidHttpTransport.call(SOAP_ACTION_drug, envelope_drug );
+            SoapObject result_drug=(SoapObject) envelope_drug.bodyIn;
+            resultServer_drug=result_drug.getProperty(0).toString();
+
+
+
+        }catch (IOException e)
+        {
+            e.printStackTrace();
+        }catch (XmlPullParserException e)
+        {
+            e.printStackTrace();
+        }
+
+               $chronic_varname = array(
+                  'strUsername' => "ict",
+                  'strPassword' => "skko",
+                  'strDatatype'=>"json",
+                  'strCID'=>"3470100391002",  //3470100391002
+        );
+
+ */
+
+        SoapObject request_chronic = new SoapObject(NAMESPACE_chronic, METHOD_NAME_chronic);
+        request_chronic.addProperty("strUsername", "ict");
+        request_chronic.addProperty("strPassword", "skko");
+        request_chronic.addProperty("strDatatype", "json");
+        request_chronic.addProperty("strCID", "3470100391002");
+
+        SoapSerializationEnvelope envelope_chronic = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        envelope_chronic.setOutputSoapObject(request_chronic);
+        HttpTransportSE androidHttpTransport_chronic = new HttpTransportSE(URL_chronic);
+        String resultServer_chronic=null;
+
+        try{
+            androidHttpTransport.call(SOAP_ACTION_chronic, envelope_chronic );
+            SoapObject result_chronic=(SoapObject) envelope_chronic.bodyIn;
+            resultServer_chronic=result_chronic.getProperty(0).toString();
+        }catch (IOException e)
+        {
+            e.printStackTrace();
+        }catch (XmlPullParserException e)
+        {
+            e.printStackTrace();
+        }
+
+
+        JSONObject obj_chronic;
+        JSONArray  json_chronic;
+
+        String off_name_chronic="";
+        String tchronic_chronic="";
+
+        try{
+              json_chronic=new JSONArray(resultServer_chronic);
+
+             //ok
+            Toast.makeText(getApplicationContext(),
+                    json_chronic.toString()
+                    ,
+                    Toast.LENGTH_LONG).show(); //ok
+            
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
         //----  tab 3  ---
 
