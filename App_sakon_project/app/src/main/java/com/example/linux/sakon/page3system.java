@@ -68,6 +68,28 @@ final ImageView imageViewI30=(ImageView) findViewById(R.id.imageViewI30);
 
 
 
+final ImageView imageViewI32=(ImageView) findViewById(R.id.imageViewI32); //คัดกรอง ncdscreen
+        imageViewI32.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(getApplicationContext(), "testing คัดกรอง", Toast.LENGTH_LONG).show(); //test user_type_name
+
+                if( user_type_id.equals("3"))  //สมมุติว่าผ่านการ login
+                {
+                    Intent intent = new Intent(page3system.this, ncdscreen.class);
+                    intent.putExtra("user_type_id", "3" );
+                    // intent.putExtra("")
+                    intent.putExtra("us","");
+                    intent.putExtra("ps","");
+                    startActivity(intent);
+
+                }
+
+            }
+        });
+
+
+
 
     }
 

@@ -38,6 +38,7 @@
         <activity android:name=".MentalHealth" ></activity>
         <activity android:name=".page3system" ></activity>
         <activity android:name=".employee" ></activity>
+        <activity android:name=".ncdscreen" ></activity>
 
     </application>
 
