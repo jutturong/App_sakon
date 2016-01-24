@@ -17,6 +17,14 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +36,11 @@ public class ncdscreen extends TabActivity {
 
     TabHost mTabHost;
 
+
+    private final String NAMESPACE=  employee.IP +  "nusoap/ServerSide.php";
+    private final String METHOD_NAME="ncdscreen";
+    private final String URL= employee.IP  +   "nusoap/ServerSide.php?wsdl";
+    private final String SOAP_ACTION =   employee.IP  +  "nusoap/ServerSide.php/" + METHOD_NAME;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +66,41 @@ public class ncdscreen extends TabActivity {
 
 
 
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("strUsername", "ict");
+        request.addProperty("strPassword", "skko");
+        request.addProperty("strDatatype", "json");
+        request.addProperty("strCID", "3470300302631");
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
+                SoapEnvelope.VER11);
+        envelope.setOutputSoapObject(request);
+        HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
+        String resultServer=null;
+
+        try{
+            androidHttpTransport.call(SOAP_ACTION, envelope);
+            SoapObject result=(SoapObject) envelope.bodyIn;
+            resultServer=result.getProperty(0).toString();
+        }catch (IOException e)
+        {
+            e.printStackTrace();
+        }catch (XmlPullParserException e)
+        {
+            e.printStackTrace();
+        }
+
+
+
+        try{
+
+
+            Toast.makeText(getApplicationContext(), resultServer , Toast.LENGTH_LONG).show(); //test user_type_name
+
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
 
     }

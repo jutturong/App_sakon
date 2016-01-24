@@ -56,7 +56,7 @@ public class employee extends TabActivity {
     public ImageView imageView20;  //ดัชนีมวลกาย body_weight
 
 
-    public String IP="http://203.157.177.121/";
+    public  static  String IP="http://203.157.177.121/";
 
     private final String NAMESPACE=  IP +  "nusoap/ServerSide.php";
     private final String METHOD_NAME="person";
