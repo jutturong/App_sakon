@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
@@ -77,10 +78,16 @@ public class ncdscreen extends TabActivity {
         HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
         String resultServer=null;
 
+
         try{
             androidHttpTransport.call(SOAP_ACTION, envelope);
             SoapObject result=(SoapObject) envelope.bodyIn;
             resultServer=result.getProperty(0).toString();
+
+           // Toast.makeText(getApplicationContext(), resultServer , Toast.LENGTH_LONG).show(); //test user_type_name
+
+
+
         }catch (IOException e)
         {
             e.printStackTrace();
@@ -89,18 +96,20 @@ public class ncdscreen extends TabActivity {
             e.printStackTrace();
         }
 
-
-
+        JSONArray ncd_arr;
+        JSONObject ncd_obj;
         try{
+           // ncd_arr=new JSONArray(resultServer);
+           // ncd_obj=new JSONObject();
 
-
-            Toast.makeText(getApplicationContext(), resultServer , Toast.LENGTH_LONG).show(); //test user_type_name
-
+           // Toast.makeText(getApplicationContext(), ncd_obj.getString("cid") , Toast.LENGTH_LONG).show(); //test user_type_name
 
         }catch (Exception e)
         {
             e.printStackTrace();
         }
+
+
 
 
     }
